@@ -45,6 +45,7 @@ body{
     opacity: 1;
     pointer-events: auto;
 }
+
 .chatbot header {
  background-color: #724ae8;
  padding: 16px 0;
