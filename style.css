@@ -179,7 +179,7 @@ select{
 
     
 }
-.tf{
+.answerInput{
     visibility: hidden;
 }
 @media(max-width:990px){
