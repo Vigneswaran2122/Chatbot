@@ -9,10 +9,10 @@
        
     </head>
     <body>
+      <!-- Parent start -->
         <div class="parent"> 
-    
+    <!-- Chatbot for interaction start -->
     <div class="show-chatbot " >
-       
         <div class="chatbot ">
            <header>Chatbot
             <span class="material-symbols-outlined">close</span>
@@ -22,32 +22,22 @@
               <li class="chat incoming">
                 <span class="material-symbols-outlined">smart_toy</span>
                 <p >Hi there 🖐 <br/> How can I help you today?</p>
-                <!-- <button class="question ">   </i>Question <i  class="fa-solid fa-volume-high "></i> </button>
-                <button class="answer  ">Answer  <i  class="fa-solid fa-volume-high "></i></button> -->
               </li>
-
-
-              
-                
                   <button class="question ">   </i>Question <i  class="fa-solid fa-volume-high "></i> </button>
                   <button class="answer  ">Answer  <i  class="fa-solid fa-volume-high "></i></button>
-                 
-                
-              
            </ul>
-         
            <div class="chat-input">
-            <textarea class="tx" id="text" placeholder="Enter a message..." required></textarea>
+            <!-- Text area for Question input -->
+            <textarea class="questionInput" id="text" placeholder="Enter a message..." required></textarea>
             <i  id="click_to_convert" class="fa-solid fa-microphone"></i>
             <span id="send-btn" class="material-symbols-outlined">send</span>
-
            </div>
            
         </div>
     </div>
+    <!-- Chatbot for interaction start -->
 
-
-
+    <!-- Chatbot Questions start -->
     <div class="show-chatbot">
         
         <div class="chatbot">
@@ -57,14 +47,12 @@
            
            <ul class="chatbox">
               <li class="chat incoming">
-                <!-- <span class="material-symbols-outlined">smart_toy</span> -->
                 <p>Hi there 🖐 <br/> Note answer the following questions given below or copy past the questions to see the answer</p>
               </li>
 
               <li class="chat incoming">
                 <span class="material-symbols-outlined">1</span>
                 <p > which tag is used to create a hyperlink</p>
-                <!-- <button id="click_to_convert">Voice</button> -->
               </li>
               <li class="chat incoming">
                 <span class="material-symbols-outlined">2</span>
@@ -116,27 +104,24 @@
   <p>7 days names</p>
 </li>
            </ul>
-           <!-- <div class="chat-input">
-            <textarea id="text" placeholder="Enter a message..." required></textarea>
-           
-            <span id="send-btn" class="material-symbols-outlined">send</span>
-
-           </div> -->
            
         </div>
+        <!-- Chatbot Questions start -->
+
+        <!-- For Multiple Voice Select -->
         <div class="row">
           <select></select>
-          <button id="btn">Listen</button>
         </div>
 
     </div>
-    
 </div>
-<div>
-  <textarea class="tf" id="hi"></textarea>
-</div>
+<!-- Parent tag end -->
 
-        
+<!-- Text area for Answer input -->
+<div>
+  <textarea class="answerInput" id="textAnswer"></textarea>
+</div>
+         <!-- Script tag for external JS file -->
         <script src="./script.js"  ></script>
     </body>
 </html>

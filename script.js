@@ -2,6 +2,8 @@ const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatbox = document.querySelector(".chatbox");
 
+
+// To speak ask a question to chatbot (SpeechRecognition)to chatbot start
 click_to_convert.addEventListener('click',function(){
     var speech = true;
     window.SpeechRecognition = window.webkitSpeechRecognition;
@@ -20,10 +22,12 @@ click_to_convert.addEventListener('click',function(){
     }
 })
 
+//To speak ask a question to chatbot  (SpeechRecognition)to chatbot end
 
 
+
+//Voice for Question and Answer Code Start
 let speech = new SpeechSynthesisUtterance();
-
 let voices = [];
 let voiceSelect = document.querySelector("select");
 
@@ -35,25 +39,21 @@ window.speechSynthesis.onvoiceschanged = () => {
 };
 
 document.querySelector(".answer").addEventListener("click", () =>{
-     speech.text = document.querySelector(".tf").value;
+     speech.text = document.querySelector(".answerInput").value;
     window.speechSynthesis.speak(speech);
 });
 
 document.querySelector(".question").addEventListener("click", () =>{
-    speech.text = document.querySelector(".tx").value;
+    speech.text = document.querySelector(".questionInput").value;
    window.speechSynthesis.speak(speech);
 });
 voiceSelect.addEventListener("change", () =>{
     speech.voice = voices[voiceSelect.value];
 });
+//Voice for Question and Answer Code end
 
 
-
-
-
-
-
-
+//Object data to store the Question and answer in key value pair start
 let data ={
     ["which tag is used to create a hyperlink"]:"&lt;a&gt;tag",["which tag is used to create a table row"]:"&lt;tr&gt;",
     ["HTML stands for"]:"HyperText Markup Language",["unordered list tag is"]:"&lt;ul&gt",
@@ -63,49 +63,18 @@ let data ={
     ["how many days in a week"]:"7 days", ["7 days names"]:"Monday,\n Tuesday,\n Wednesday,\nThursday,Friday,Saturday,Sunday"
 }
 
+//Object data to store the Question and answer in key value pair end
+
+
+//Use to show the Question and Answer in Chatbot code start
 let userMessage;
 const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
     chatLi.classList.add("chat",className); 
     let chatContent = className === "outgoing" ? `<p>${message}</p> ` : `<span class="material-symbols-outlined">smart_toy</span>  <p>${message}  </p>  `;
-    
     chatLi.innerHTML = chatContent;
     return chatLi;
 }
-console.log(chatInput,"m");
-
-
-
-// const generateResponse = (incomingChatLi) => {
-//     const API_URL ="https://659b7fe7d565feee2dab1ee0.mockapi.io/userData";
-//      const messageElement = incomingChatLi.querySelector("p");
-//     const requestOptions = {
-//         method: "POST",
-//         headers:{
-//             "Content-Type" : "application/json",
-//              "Authorization" : `Bearer ${API_URL}`
-//         },
-//         body: JSON.stringify({
-//             model: "gpt-3.5-turbo",
-//     messages: [
-//       {\n 
-//         role: "user",
-//         content: userMessage
-//       }
-//     ]
-//         })
-//     }
-    // fetch( ).then(res => res.json()).then(data => {
-    //      messageElement.textContent = data.choices[0].message.content;
-    // }).catch((error)=> {
-    //     for(let a in data){
-    //             if(a == a){
-    //                messageElement.textContent = "oops something went wrong";
-    //         }
-    //      }
-         
-    // })
-    
 
 const handleChat = () => {
     userMessage = chatInput.value.trim();
@@ -113,49 +82,38 @@ const handleChat = () => {
     chatbox.appendChild(createChatLi(userMessage, "outgoing"));
     
 
-
+//set time out use to delay the output time
     setTimeout(()=> {
-
         for(let a in data){
+            //compare the object key and our input question
             if(chatInput.value == a){
+                //print the value in the object particular expected question answer
                 const incomingChatLi = createChatLi(data[a]);  
-        //const incomingChatLi = createChatLi("Thinking", "incoming");
         chatbox.appendChild(incomingChatLi);
-        document.getElementById("hi").innerHTML= data[a];
+        //  Text area for Answer input
+        document.getElementById("textAnswer").innerHTML= data[a];
 
-
-        
-         generateResponse(incomingChatLi);
-
+               //or compare the input answer and object value answer
             }else if (chatInput.value == data[a]){
-                
+                //if answer is correct it will print answer is correct
                 const incomingChatLi = createChatLi("Your answer is correct 😊"); 
                 chatbox.appendChild(incomingChatLi);
-                document.getElementById("hi").innerHTML= "Your answer";
-                
-                
-                
+                 //  Text area for Answer input
+                document.getElementById("textAnswer").innerHTML= "Your answer is correct 😊";
             } 
             
-        }{
+        }
+        // Is used to Arithmetic  Operation Code just we used eval key to perform
+        {
             const incomingChatLi = createChatLi (eval(chatInput.value)); 
             chatbox.appendChild((incomingChatLi));
-            document.getElementById("hi").innerHTML= (eval(chatInput.value));
+             //  Text area for Answer input
+            document.getElementById("textAnswer").innerHTML= (eval(chatInput.value));
         }
     },600);
 
 }
-console.log(chatInput.value,"jjj")
 
-// document.getElementById("btn").addEventListener("click", ()=>{
-//     var msg = document.getElementById("outgoing" );
-//     const utterance = new SpeechSynthesisUtterance(msg);
-//     utterance.pitch = 0.5;
-//     utterance.rate = 1;
-//     speechSynthesis.speak(utterance);
-// });
-
-
-        
+//Use to show the Question and Answer in Chatbot code start end
 
 sendChatBtn.addEventListener("click", handleChat); 

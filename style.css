@@ -10,9 +10,6 @@ body{
     background-color: #E3F2FD;
 }
 .chatbot-toggler{
-    /* position: fixed;
-    
-    bottom: 35px; */
     height: 50px;
     width: 50px;
     color: #fff;
@@ -25,9 +22,7 @@ body{
     background-color: #724ae8;
     border-radius: 50%;
 }
-.chatbot-toggler span{
-    /* position: absolute; */
-}
+
 .show-chatbot .chatbot-toggler span:first-child,
 .chatbot-toggler span:last-child {
     opacity: 0;
@@ -36,14 +31,11 @@ body{
     opacity: 1;
 }
 .chatbot{
-    /* : scaletransform(0.5); */
     opacity: 0;
     pointer-events: none;
     background-color: #fff;
-   /* position: fixed; */
-   
     overflow: hidden;
-    width: 420px;
+    width: 410px;
     border-radius: 15px;
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
     0 32px 64px -48px rgba(0,0,0,0.5);
@@ -110,7 +102,6 @@ body{
     border-radius: 10px 10px 10px 0;
 }
 .chatbot .chat-input {
-    /* position: absolute; */
     bottom: 0;
     width: 100%;
     display: flex;
@@ -149,6 +140,7 @@ body{
     display: flex;
     gap: 10px;
     justify-content: center;
+    align-items: center;
 }
 .fa-microphone{
     font-size: 20px;
@@ -184,6 +176,7 @@ select{
     padding: 0 20px;
     outline: 0;
     border: 0;
+
     
 }
 .tf{
@@ -193,20 +186,22 @@ select{
     .chatbot{
         right: 0;
         bottom: 0;
-        width: 100%;
-         
         border-radius: 0;
+        width: 340px;
     }
    
 }
-
-@media(max-width:490px){
+@media(max-width:670px){
     .chatbot{
         right: 0;
         bottom: 0;
-        width: 100%;
-        
         border-radius: 0;
+        width: 350px;
+    }
+    .parent{
+        display: flex;
+        flex-direction: column;
+
     }
    
 }
