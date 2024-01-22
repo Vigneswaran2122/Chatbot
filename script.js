@@ -60,7 +60,8 @@ let data ={
     ["how to insert an image in HTML"]:"&lt;img src = &quot;jtp.png&quot; /&gt;",["unique name to element class or id"]:"id",
     ["which HTML tag used to display the text with scrolling effect"]:"&lt;marquee&gt;",["the tags in HTML are"]:"not case sensitive",
     ["root tag of the HTML document"]:"&lt;html&gt;", ["comment tag in HTML"]:"&lt;!-- and --!&gt;",
-    ["how many days in a week"]:"7 days", ["7 days names"]:"Monday,\n Tuesday,\n Wednesday,\nThursday,Friday,Saturday,Sunday"
+    ["how many days in a week"]:"7 days", ["7 days names"]:"Monday,\n Tuesday,\n Wednesday,\nThursday,Friday,Saturday,Sunday",
+    ["hi chatbot"]:"hello how can i help you"
 }
 
 //Object data to store the Question and answer in key value pair end
